@@ -46,7 +46,7 @@ public class PantallaInicio extends JFrame implements ActionListener {
 		setIconImage(miIcono);// Poner Icono
 
 		add(botonInicio);// Aniadido Boton
-		botonInicio.addActionListener(this);// Hacemos que el escuchante sea esta pestaña
+		botonInicio.addActionListener(this);//Hacemos que el escuchante sea esta pestaña
 
 	}
 
@@ -72,19 +72,23 @@ public class PantallaInicio extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		Loop init = new Loop();// La accion del boton sera empezar el juego
 		Object botonPulsado = e.getSource();// Obtenemos que boton se ha pulsado
-
+		/*
 		if (botonPulsado == botonInicio) { // Condicion para que cuando haya varios botones se sepa que accion hace cada
 											// uno
 
-			setVisible(false);
+			// setVisible(false);
+
+			Juego juego = new Juego();
 
 			try {
-				init.movement();
+				juego.loop();
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
+
 		}
+		*/
 	}
+	
 }
