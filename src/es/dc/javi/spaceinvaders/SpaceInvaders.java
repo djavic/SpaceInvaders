@@ -11,19 +11,6 @@ import java.awt.*;
 
 public class SpaceInvaders {
 
-	/*
-	public static void main(String[] args) {
-		
-		PantallaInicio init = new PantallaInicio();
-		
-		init.setVisible(true);
-		
-		init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-	}
-	*/
-	
-	
 	public static void main(String[] args) throws InterruptedException {
 		
 		JFrame frame = new JFrame("Space Invaders");
