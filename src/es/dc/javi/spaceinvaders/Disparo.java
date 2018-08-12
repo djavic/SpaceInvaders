@@ -15,7 +15,7 @@ public class Disparo extends JPanel {
 	private Juego juego;
 	private int x = -23;
 	private int xa;
-	private int y = 590;
+	private int y = 600;
 	private Image disparoImagen;
 
 	public Disparo(Juego juego) {
@@ -26,19 +26,12 @@ public class Disparo extends JPanel {
 
 	public void moveDisparado() {
 
-		/*
-		 * for (int i = 630; i > -10; i--) { y = i;
-		 * 
-		 * 
-		 * }
-		 */
-
 		boolean flag = true;
 
 		while (flag) {
 
-			y = y - 10;
-
+			y = y - 1;
+			
 			if (y == 0) {
 				flag = false;
 			}
@@ -75,7 +68,7 @@ public class Disparo extends JPanel {
 
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 
-			y = 590; //retornamos a la posiion inicia
+			y = 600; // retornamos a la posiion inicia
 		}
 
 	}
