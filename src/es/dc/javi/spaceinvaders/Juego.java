@@ -19,6 +19,7 @@ public class Juego extends JPanel {
 	Nave nave = new Nave(this);
 	Disparo disparo = new Disparo(this);
 	private Image fondo;
+	
 
 	public Juego() {
 
@@ -31,13 +32,13 @@ public class Juego extends JPanel {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				nave.keyReleased(e); // Le decimos a nave que se ha soltado una tecla
-				disparo.keyReleased(e); // Le decimos a nave que se ha soltado una tecla
+				disparo.keyReleased(e); // Le decimos a disparo que se ha soltado una tecla
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
 				nave.keyPressed(e);// Le decimos a nave que alguien toco una tecla
-				disparo.keyPressed(e);
+				disparo.keyPressed(e); //LE decimos cuadno disparar
 
 			}
 
@@ -49,6 +50,7 @@ public class Juego extends JPanel {
 
 	public void move() { // Metodo que llama al metodo de moverse la de la nave
 		nave.move();
+		disparo.moveApuntado();
 	}
 
 	@Override
@@ -74,6 +76,7 @@ public class Juego extends JPanel {
 																									// necesario)
 
 		nave.paint(g2d); // Pintamos la nave llamando al metodo paint de nave
+		disparo.paint(g2d); //Pintamos el disparo
 
 	}
 }

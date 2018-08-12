@@ -10,72 +10,82 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import sun.awt.RepaintArea;
-
 public class Disparo extends JPanel {
 
 	private Juego juego;
-	int y = 300;
-	int ya = 0; // Velocidad del disparo
-	private Image imagenDisparo;
-	
+	private int x = -23;
+	private int xa;
+	private int y = 590;
+	private Image disparoImagen;
 
 	public Disparo(Juego juego) {
+
 		this.juego = juego;
 
 	}
 
-	public void move() {
-		y = y + ya;
+
+	public void moveDisparado() {
+
+		/*
+		 * for (int i = 630; i > -10; i--) { y = i;
+		 * 
+		 * 
+		 * }
+		 */
+
+		boolean flag = true;
+
+		while (flag) {
+
+			y = y - 10;
+
+			if (y == 0) {
+				flag = false;
+			}
+		}
+	}
+
+	public void moveApuntado() {
+		x = x + xa; // Movimiento de apuntado
 	}
 
 	public void paint(Graphics g) {
 
-		Graphics2D gd2 = (Graphics2D) g;
-
-		File disparo = new File("imagenes/disparo.png");
-
-		try {
-			imagenDisparo = ImageIO.read(disparo);
-		} catch (IOException e) {
-			System.out.println("Imagen no encontrada");
-		}
+		Graphics2D g2d = (Graphics2D) g;
+		
+		  File disparo = new File("imagenes/disparo.png");
+		  
+		  try { disparoImagen = ImageIO.read(disparo); } catch (IOException e) {
+		  System.out.println("Imagen no encontrada"); }
+		  
+		  g2d.drawImage(disparoImagen, x, y, null);// Pintamos la imagen
+		 
+		//g2d.fillOval(x, y, 30, 30);
 	}
 
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased(KeyEvent e) { // Soltamos tecla
 		
+		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_A ) {
+			xa = 0; //Velocidad con la que se mueve
+		}
+
+	}
+
+	public void keyPressed(KeyEvent e) { // pulsamos tecla
+
+		if (e.getKeyCode() == KeyEvent.VK_D) {
+			xa = 3; // Velocidad con la que se mueve
+		} else if (e.getKeyCode() == KeyEvent.VK_A) {
+			xa = -3;
+		}
 
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 
-			loop(false);
-		}
-
-	}
-
-	public void keyPressed(KeyEvent e) {
-
-		if (e.getKeyCode() == KeyEvent.VK_W) {
-
-			loop(true);
-		}
-
-	}
-	
-	private void loop(boolean flag) {
-		
-		while(flag) {
-			
-			move();
+			moveDisparado();
 			repaint();
-			
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
-		
+
 	}
 
 }

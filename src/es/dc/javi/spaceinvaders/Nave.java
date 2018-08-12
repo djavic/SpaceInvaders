@@ -17,13 +17,16 @@ public class Nave {
 	private Juego juego;
 	private Image naveImagen;//Imagen de la nave principal
 
-	public Nave(Juego juego) { //COnstructor de la copia
+	public Nave(Juego juego) { //Constructor de la copia
 		this.juego = juego;
 	}
 
-	public void move() {
+	public int move() {
 
 		x = x + xa; //Movimiento de la nave
+		
+		System.out.println("Posicion de la nave : " + x);
+		return x;
 		
 	}
 
@@ -38,25 +41,22 @@ public class Nave {
 		} catch (IOException e) {
 			System.out.println("Imagen no encontrada");//Capturamos la excepcion
 		}
-
 		g2d.drawImage(naveImagen, x, 630, null);//Pintamos la imagen
 	}
 
 	public void keyReleased(KeyEvent e) { //Hemos soltado la tecla
-		xa = 0;
-		
+
+		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_A ) {
+			xa = 0; //Velocidad con la que se mueve
+		}
 	}
 
 	public void keyPressed(KeyEvent e) { //Presionamos la tecla
 	
 		if(e.getKeyCode() == KeyEvent.VK_D) {
-			xa = 3; //Velocidad con la que se muevej
+			xa = 3; //Velocidad con la que se mueve
 		}else if(e.getKeyCode() == KeyEvent.VK_A) {
 			xa = -3;
-		}
-		
+		}	
 	}
-
-	
-
 }
