@@ -24,7 +24,6 @@ public class Disparo extends JPanel {
 
 	}
 
-
 	public void moveDisparado() {
 
 		/*
@@ -53,21 +52,30 @@ public class Disparo extends JPanel {
 	public void paint(Graphics g) {
 
 		Graphics2D g2d = (Graphics2D) g;
-		
-		  File disparo = new File("imagenes/disparo.png");
-		  
-		  try { disparoImagen = ImageIO.read(disparo); } catch (IOException e) {
-		  System.out.println("Imagen no encontrada"); }
-		  
-		  g2d.drawImage(disparoImagen, x, y, null);// Pintamos la imagen
-		 
-		//g2d.fillOval(x, y, 30, 30);
+
+		File disparo = new File("imagenes/disparo.png");
+
+		try {
+			disparoImagen = ImageIO.read(disparo);
+		} catch (IOException e) {
+			System.out.println("Imagen no encontrada");
+		}
+
+		g2d.drawImage(disparoImagen, x, y, null);// Pintamos la imagen
+
+		// g2d.fillOval(x, y, 30, 30);
 	}
 
 	public void keyReleased(KeyEvent e) { // Soltamos tecla
-		
-		if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_A ) {
-			xa = 0; //Velocidad con la que se mueve
+
+		if (e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_A) {
+			xa = 0; // Velocidad con la que se mueve
+
+		}
+
+		if (e.getKeyCode() == KeyEvent.VK_W) {
+
+			y = 590; //retornamos a la posiion inicia
 		}
 
 	}
@@ -82,8 +90,8 @@ public class Disparo extends JPanel {
 
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 
-			moveDisparado();
-			repaint();
+			moveDisparado(); // actualizamos la poscion
+			repaint(); // Repintamos
 		}
 
 	}
