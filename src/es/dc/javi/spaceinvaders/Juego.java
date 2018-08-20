@@ -74,7 +74,7 @@ public class Juego extends JPanel {
 																									// caso al ser
 																									// pixelPaint no es
 																									// necesario)
-		disparo.paint(g2d); //Pintamos el disparo
+		
 		nave.paint(g2d); // Pintamos la nave llamando al metodo paint de nave
 		
 

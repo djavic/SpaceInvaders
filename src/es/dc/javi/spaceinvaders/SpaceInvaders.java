@@ -32,6 +32,8 @@ public class SpaceInvaders {
 		frame.setIconImage(miIcono);// Poner Icono
 		
 		while (true) { //Loop del juego
+			
+			
 			juego.move();
 			juego.repaint();
 			Thread.sleep(10);

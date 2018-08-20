@@ -31,7 +31,7 @@ public class Disparo extends JPanel {
 		while (flag) {
 
 			y = y - 1;
-			
+
 			if (y == 0) {
 				flag = false;
 			}
