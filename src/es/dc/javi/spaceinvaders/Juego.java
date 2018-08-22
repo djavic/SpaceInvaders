@@ -18,6 +18,7 @@ public class Juego extends JPanel {
 
 	Nave nave = new Nave(this);
 	Disparo disparo = new Disparo(this);
+	Enemigos enemigos = new Enemigos(this);
 	private Image fondo;
 	
 
@@ -49,8 +50,12 @@ public class Juego extends JPanel {
 	}
 
 	public void move() { // Metodo que llama al metodo de moverse la de la nave
+		/**
+		 * MOVIEMIENTOS DE LOS SPRITES
+		 */
 		nave.move();
 		disparo.moveApuntado();
+		enemigos.move();
 	}
 
 	@Override
@@ -74,8 +79,11 @@ public class Juego extends JPanel {
 																									// caso al ser
 																									// pixelPaint no es
 																									// necesario)
-		
+		/**
+		 * PINTAMOS LOS SPRITES DEL JUEGO
+		 */
 		nave.paint(g2d); // Pintamos la nave llamando al metodo paint de nave
+		enemigos.paint(g2d);//Pintamos los enemigos
 		
 
 	}

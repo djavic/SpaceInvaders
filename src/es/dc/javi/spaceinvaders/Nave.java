@@ -9,31 +9,34 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Nave {
+	
+	private Juego juego;
+	private Image naveImagen;// Imagen de la nave principal
 
 	int x = 300; // posicion inicial en x
-	int xa = 0; // 0-quieto + - derecha - - izquierdad
-	private Juego juego;
-	private Image naveImagen;// Imagen de la nxave principal
+	int xa = 0; // 0-quieto + - derecha - - izquierdad //velocidad variable
+	
+	private int  velocidadX = 4; //Velocidad  fija
+	
+
 
 	public Nave(Juego juego) { // Constructor de la copia
 		this.juego = juego;
 	}
 
-	public int move() {
+	public void move() {
 
-		if (x <= 0) {
-			x = 1;
+		if (x <= -8) {
+			x = -7;
 
 		} else if (x > 660) {
-
 			x = 659;
 
 		} else {
 			x = x + xa; // Movimiento de la nave
 		}
 
-		System.out.println("Posicion de la nave : " + x);
-		return x;
+		//System.out.println("Posicion de la nave : " + x);
 
 	}
 
@@ -48,7 +51,7 @@ public class Nave {
 		} catch (IOException e) {
 			System.out.println("Imagen no encontrada");// Capturamos la excepcion
 		}
-		g2d.drawImage(naveImagen, x, 630, null);// Pintamos la imagen
+		g2d.drawImage(naveImagen, x, 610, null);// Pintamos la imagen
 	}
 
 	public void keyReleased(KeyEvent e) { // Hemos soltado la tecla
@@ -61,9 +64,9 @@ public class Nave {
 	public void keyPressed(KeyEvent e) { // Presionamos la tecla
 
 		if (e.getKeyCode() == KeyEvent.VK_D) {
-			xa = 3; // Velocidad con la que se mueve
+			xa = velocidadX; // Velocidad con la que se mueve
 		} else if (e.getKeyCode() == KeyEvent.VK_A) {
-			xa = -3;
+			xa = -velocidadX;
 		}
 	}
 }

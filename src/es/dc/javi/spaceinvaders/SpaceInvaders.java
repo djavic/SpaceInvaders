@@ -24,7 +24,7 @@ public class SpaceInvaders {
 		frame.setLocation(anchoPantalla / 4, alturaPantalla / 32);// Marco centrado
 		
 		frame.setSize(700, 700);
-		frame.setResizable(false);// No dejamos poner en pantalla completa
+		//frame.setResizable(false);// No dejamos poner en pantalla completa
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
